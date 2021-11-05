@@ -1,0 +1,62 @@
+class Hello {
+	int front=-1;
+	int rear=-1;
+	int size=5;
+	int element;
+	int queue[]=new int[size];
+	public void enQueue(int x){
+		if(rear==size-1 && front==0){
+			System.out.println("Is full");
+		}
+		else{
+			rear++;
+			front++;
+			queue[rear]=x;
+			System.out.println("Element inserted:"+x);
+
+		}
+	}
+	int dequeue(){
+		if(front==-1){
+      System.out.println("Empty");
+      System.exit(1);
+		}
+		else{
+			element=queue[front];
+			System.out.println("Deleted element is:"+element);
+			front++;
+			element=queue[front];
+			System.out.println("Deleted element is:"+element);
+			if(front>=rear){
+				front=-1;
+				rear=-1;
+			}
+			else{
+				front++;
+			}
+			
+		}
+		return(element);
+	}
+	public void display(){
+		front=0;
+		//System.out.println("Front index is:"+front);
+		for(int i=front;i<rear+1;i++){
+			System.out.print(queue[i]+" ");
+		}
+		System.out.println("\n");
+	}
+}
+class Queue1{
+public static void main(String args[]){
+	Hello h1=new Hello();
+     h1.enQueue(1);
+       h1.enQueue(2);
+       h1.enQueue(3);
+       h1.enQueue(4);
+       h1.display();
+      h1.dequeue();
+        
+
+}
+}
